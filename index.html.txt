@@ -24,7 +24,7 @@ body
     div class=main
       div class=funny id=funnyloading significant content…div
     div
-    div class=surprise id=surprisewow. look at you. doing great. proud of you. span class=emoji👏spandiv
+    div class=surprise id=surprise와 정말 잘하고 있어 자랑스러워 span class=emoji👏spandiv
     div class=tinyclick anywhere if you want to skip the dramadiv
   div
 
@@ -62,3 +62,4 @@ body
   script
 body
 html
+
