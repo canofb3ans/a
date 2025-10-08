@@ -1,67 +1,77 @@
-!doctype html
-html lang=en
-head
-  meta charset=utf-8 
-  meta name=viewport content=width=device-width,initial-scale=1 
-  titletotally not a motivational linktitle
-  style
-    root{ --bg#0f0f12; --card#1a1a20; --muted#aaaaaa; --accent#d8d8d8; }
-    html,body{height100%;margin0;font-familyInter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica Neue,Arial;}
-    body{displayflex;align-itemscenter;justify-contentcenter;backgroundlinear-gradient(160deg,#0b1220,#08121a);colorvar(--accent);}
-    .card{widthmin(760px,92vw);padding36px;border-radius12px;backgroundrgba(255,255,255,0.03);box-shadow0 6px 20px rgba(0,0,0,0.6);text-aligncenter}
-    .bait{font-size18px;colorvar(--muted);margin-bottom14px}
-    .main{font-size28px;line-height1.2;margin10px 0;min-height72px;displayflex;align-itemscenter;justify-contentcenter}
-    .funny{font-weight600;opacity1;transitionopacity .4s}
-    .surprise{font-size20px;color#bcd;opacity0;transformtranslateY(6px);transitionall .45s}
-    .shown{opacity1;transformtranslateY(0)}
-    .tiny{font-size12px;colorvar(--muted);margin-top14px}
-    .emoji{displayinline-block;margin-left8px}
-  style
-head
-body
-  div class=card role=main
-    div class=baitthis link is definitely not suspiciousdiv
-    div class=main
-      div class=funny id=funnyloading significant content…div
-    div
-    div class=surprise id=surprisewow. look at you. doing great. proud of you. span class=emoji👏spandiv
-    div class=tinyclick anywhere if you want to skip the dramadiv
-  div
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Totally Innocent Link</title>
+  <style>
+    body {
+      background: #0f0f12;
+      color: #d8d8d8;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .card {
+      background: rgba(255,255,255,0.03);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    }
+    .bait {
+      font-size: 18px;
+      color: #aaaaaa;
+      margin-bottom: 12px;
+    }
+    .main {
+      font-size: 28px;
+      line-height: 1.2;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .surprise {
+      font-size: 20px;
+      color: #bcd;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: all 0.45s;
+      font-weight: 600;
+    }
+    .shown {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .tiny {
+      font-size: 12px;
+      color: #aaaaaa;
+      margin-top: 14px;
+    }
+    .emoji {
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="bait">this link is definitely not suspicious</div>
+    <div class="main" id="mainText">loading…</div>
+    <div class="surprise" id="surpriseText">wow. look at you. doing great, [Friend’s Name]! <span class="emoji">👏</span></div>
+    <div class="tiny">click anywhere to skip the suspense</div>
+  </div>
 
-  script
-    const funny = document.getElementById('funny');
-    const surprise = document.getElementById('surprise');
+  <script>
+    const mainText = document.getElementById('mainText');
+    const surpriseText = document.getElementById('surpriseText');
 
-     Sequence of bait text (dry humor)
     const lines = [
-      totally not a tutorial,
-      please wait,
-      fine, here's a meme,
-      actually… one sec
-    ];
+      "tot
 
-    let i = 0;
-    const step = () = {
-      if (i  lines.length) {
-        funny.textContent = lines[i++];
-        setTimeout(step, 700 + Math.random()400);
-      } else {
-         reveal the real message
-        funny.style.opacity = 0;
-        surprise.classList.add('shown');
-      }
-    };
-     start after brief pause
-    setTimeout(step, 500);
-
-     allow click anywhere to immediately reveal
-    document.body.addEventListener('click', () = {
-      funny.style.opacity = 0;
-      surprise.classList.add('shown');
-    });
-  script
-body
-html
 
 
 
