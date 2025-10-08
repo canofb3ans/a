@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hey man</title>
+  <style>
+    body {
+      background: #0f0f12;
+      color: #d8d8d8;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .card {
+      background: rgba(255,255,255,0.03);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    }
+    .bait {
+      font-size: 18px;
+      color: #aaaaaa;
+      margin-bottom: 12px;
+    }
+    .main {
+      font-size: 28px;
+      line-height: 1.2;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .surprise {
+      font-size: 20px;
+      color: #bcd;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: all 0.45s;
+      font-weight: 400;
+    }
+    .shown {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .tiny {
+      font-size: 12px;
+      color: #aaaaaa;
+      margin-top: 14px;
+    }
+    .emoji {
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="bait">야옹</div>
+    <div class="main" id="mainText">loading…</div>
+    <div class="surprise" id="surpriseText">wow. look at you. doing great, teacher.</div>
+    <div class="tiny">click anywhere</div>
+  </div>
+
+  <script>
+    const mainText = document.getElementById('mainText');
+    const surpriseText = document.getElementById('surpriseText');
+
+    const lines = [
+      "₍^. .^₎⟆",
+      "≽^•⩊•^≼",
+      "₍^.  ̫.^₎⟆ ‍",
+      ">^•-•^<"
+    ];
+
+    let i = 0;
+    const step = () => {
+      if (i < lines.length) {
+        mainText.textContent = lines[i++];
+        setTimeout(step, 700 + Math.random() * 400);
+      } else {
+        mainText.style.opacity = 0;
+        surpriseText.classList.add('shown');
+      }
+    };
+
+    setTimeout(step, 500);
+
+    // Click anywhere to reveal immediately
+    document.body.addEventListener('click', () => {
+      mainText.style.opacity = 0;
+      surpriseText.classList.add('shown');
+    });
+  </script>
+</body>
+</html>
